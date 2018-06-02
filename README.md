@@ -32,16 +32,16 @@ print(area2)
 # 0.02 m2
 ```
 
-##Units
+## Units
 
 ### Length
 
 | name | class name | distance |
 | --- | --- | --- |
-| millimetre | mm | 10^-3 |
-| centimetre | cm | 10^-2 |
-| metre | m | 1 |
-| kilometre | km | 10^3 |
+| millimeter | mm | 10^-3 |
+| centimeter | cm | 10^-2 |
+| meter | m | 1 |
+| kilometer | km | 10^3 |
 
 ### Mass
 
