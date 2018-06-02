@@ -83,5 +83,5 @@ print(area2)
 ## Licence
 MIT
 
-## Autor
-Ryuhei Fuita
+## Author
+Ryuhei Fujita
