@@ -1,4 +1,6 @@
 # ufloat
+[![Build Status](https://travis-ci.org/ryuhey0123/ufloat.svg?branch=master)](https://travis-ci.org/ryuhey0123/ufloat)
+
 Add float class with SI units.
 
 ## Usage
