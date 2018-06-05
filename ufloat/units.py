@@ -1,34 +1,47 @@
 class Unit(object):
 
-    def __init__(self, name, distance):
+    def __init__(self, name, factor=None):
         self.name = str(name)
-        self.distance = float(distance)
+        if factor == float or int:
+            self.factor = float(factor)
+        elif factor is None:
+            self.__set_factor(self.name)
 
     def __str__(self):
         return self.name
+
+    def __set_factor(self, name):
+        """ factor が None のときに呼ばれる. デフォルト単位から指数を推定 """
+        factor = None
+        self.factor = factor
+
+    def __mul__(self, other):
+        """ Unit * Unit
+        :param other: Unit
+        """
+        return float(self.factor * other.factor)
+
+    def __truediv__(self, other):
+        """ Unit / Unit
+        :param other: Unit
+        """
+        return float(self.factor / other.factor)
 
 
 # Length Define
 m = Unit('m', 1)
 km = Unit('km', 1000)
 
-# TODO: 本当はそれぞれクラスで書きたい。名前空間が汚れるため。
-# class m(Unit):
-#
-#     def __str__(self):
-#         return 'm'
-#
-# ufloat(100, m()) とかの使い方は冗長なので、ufloat(100, m)とかで使いたい。
-# しかし、インスタンス生成しないとメソッド使えないので str(m) としても <'class' m >となる。
-# クラスメソッド化はありかも。→ ダメだった
+# Mass
+g = Unit('g', 1)
+kg = Unit('kg', 1000)
 
-# class N(Unit):
-#
-#     @staticmethod
-#     def __str__():
-#         return 'N'
-#
-# if __name__ == '__main__':
-#     print(N)
-#
-# >>> <class '__main__.N'>
+if __name__ == '__main__':
+    test = g * m
+    print(test)
+    test = kg * m
+    print(test)
+    test = km / g
+    print(test)
+    test = kg / km
+    print(test)

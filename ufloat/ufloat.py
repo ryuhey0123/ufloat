@@ -1,10 +1,12 @@
 # TODO: ディレクトリ構成が微妙。名前かぶりすぎ
+# from ufloat.units import Unit
 
 
 class ufloat(object):
 
-    def __init__(self, x, unit):
+    def __init__(self, x, unit, factor=None):
         self.x = float(x)
+        # self.unit = Unit(unit, factor) #調整中
         self.unit = unit
 
     def __str__(self):
@@ -23,7 +25,7 @@ class ufloat(object):
         :return: ufloat
         """
         if isinstance(other, ufloat):
-            distance = other.unit.distance * self.unit.distance
+            distance = other.unit.factor * self.unit.factor
         else:
             distance = 1.0
         try:
