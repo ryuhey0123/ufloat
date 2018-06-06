@@ -21,7 +21,7 @@ class Unit(object):
         .alias: 別名
     """
 
-    def __init__(self, name, factor=None, alias=None):
+    def __init__(self, name, factor=None, alias=None, base_unit=None):
         """
         Args:
             name (str):
@@ -35,8 +35,9 @@ class Unit(object):
                 単位の別名。例えば、Pa = N/m2.
         """
         self._name = str(name)
-        self._base_unit, self._factor = self.__set_factor(self.name)
+        self._factor = factor
         self._alias = alias
+        self._base_unit = base_unit
 
     @staticmethod
     def __set_factor(name):
